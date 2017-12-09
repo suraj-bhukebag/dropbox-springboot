@@ -4,7 +4,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Interests {
@@ -13,11 +16,13 @@ public class Interests {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 	
-	private String filed;
+	private String interest;
 	
 	private String comment;
 	
-	@OneToOne()
+	@JsonIgnore
+	@ManyToOne
+	@JoinColumn(name = "user_id")
 	private User user;
 
 	public long getId() {
@@ -28,12 +33,12 @@ public class Interests {
 		this.id = id;
 	}
 
-	public String getFiled() {
-		return filed;
+	public String getInterest() {
+		return interest;
 	}
 
-	public void setFiled(String filed) {
-		this.filed = filed;
+	public void setInterest(String interest) {
+		this.interest = interest;
 	}
 
 	public String getComment() {

@@ -1,11 +1,20 @@
 package com.cmpe273.dropbox.model;
 
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 @Entity
 public class User {
@@ -28,6 +37,9 @@ public class User {
 
 	@OneToOne()
 	private EducationInfo educationInfo;
+	
+	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+	private Set<Interests> interests = new HashSet<Interests>();
 
 	public long getId() {
 		return id;
@@ -84,4 +96,13 @@ public class User {
 	public void setEducationInfo(EducationInfo educationInfo) {
 		this.educationInfo = educationInfo;
 	}
+
+	public Set<Interests> getInterests() {
+		return interests;
+	}
+
+	public void setInterests(Set<Interests> interests) {
+		this.interests = interests;
+	}
+	
 }

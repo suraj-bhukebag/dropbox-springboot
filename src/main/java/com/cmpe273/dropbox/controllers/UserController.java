@@ -11,6 +11,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import com.cmpe273.dropbox.mappers.SignUpRequest;
 import com.cmpe273.dropbox.mappers.SignUpResponse;
 import com.cmpe273.dropbox.mappers.SigninResponse;
+import com.cmpe273.dropbox.mappers.UserEducationInfoRequest;
+import com.cmpe273.dropbox.mappers.UserEducationInfoResponse;
+import com.cmpe273.dropbox.mappers.UserInterestInfoRequest;
+import com.cmpe273.dropbox.mappers.UserInterestsInfoResponse;
 import com.cmpe273.dropbox.mappers.UserPersonalInfoRequest;
 import com.cmpe273.dropbox.mappers.UserPersonalInfoResponse;
 import com.cmpe273.dropbox.services.UserService;
@@ -45,6 +49,26 @@ public class UserController {
 		UserPersonalInfoResponse userPinfoResponse = userService
 				.userPersonalInfo(pinfoRequest);
 		res = new ResponseEntity(userPinfoResponse, HttpStatus.OK);
+		return res;
+	}
+
+	@PostMapping(path = "userEduInfo", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<?> userEducationInfo(
+			@RequestBody UserEducationInfoRequest eduinfoRequest) {
+		ResponseEntity res = null;
+		UserEducationInfoResponse userEduinfoResponse = userService
+				.userEducationInfo(eduinfoRequest);
+		res = new ResponseEntity(userEduinfoResponse, HttpStatus.OK);
+		return res;
+	}
+	
+	@PostMapping(path = "userIntInfo", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<?> userInterestsInfo(
+			@RequestBody UserInterestInfoRequest eduinfoRequest) {
+		ResponseEntity res = null;
+		UserInterestsInfoResponse userIntinfoResponse = userService
+				.userInterestInfo(eduinfoRequest);
+		res = new ResponseEntity(userIntinfoResponse, HttpStatus.OK);
 		return res;
 	}
 }

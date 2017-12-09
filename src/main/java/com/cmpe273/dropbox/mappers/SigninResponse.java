@@ -1,11 +1,11 @@
 package com.cmpe273.dropbox.mappers;
 
 import java.util.List;
+import java.util.Set;
 
 import com.cmpe273.dropbox.model.EducationInfo;
 import com.cmpe273.dropbox.model.Interests;
 import com.cmpe273.dropbox.model.PersonalInfo;
-import com.cmpe273.dropbox.model.User;
 
 public class SigninResponse extends GenericResponse {
 
@@ -17,7 +17,7 @@ public class SigninResponse extends GenericResponse {
 	
 	private EducationInfo eduinfo;
 	
-	private List<Interests> interests;
+	private Set<Interests> interests;
 
 	public boolean isLoggedIn() {
 		return loggedIn;
@@ -51,11 +51,11 @@ public class SigninResponse extends GenericResponse {
 		this.eduinfo = eduinfo;
 	}
 
-	public List<Interests> getInterests() {
+	public Set<Interests> getInterests() {
 		return interests;
 	}
 
-	public void setInterests(List<Interests> interests) {
+	public void setInterests(Set<Interests> interests) {
 		this.interests = interests;
 	}
 	
