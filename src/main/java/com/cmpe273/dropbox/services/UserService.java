@@ -53,8 +53,8 @@ public class UserService {
 		} else {
 			user = new User();
 			user.setEmail(signupRequest.getEmail());
-			user.setFirstname(signupRequest.getFirstname());
-			user.setLastname(signupRequest.getLastname());
+			user.setFirstname(signupRequest.getFname());
+			user.setLastname(signupRequest.getLname());
 			user.setPassword(passwordEncoder.encode(signupRequest.getPassword()));
 			userDao.save(user);
 			signUpResponse.setCode(200);
@@ -78,6 +78,7 @@ public class UserService {
 				signinResponse.setLoggedIn(true);
 				UserResponse userResponse = new UserResponse();
 				userResponse.setId(user.getId());
+				System.out.println(user.getFirstname());
 				userResponse.setFname(user.getFirstname());
 				userResponse.setLname(user.getLastname());
 				userResponse.setEmail(user.getEmail());
@@ -126,6 +127,7 @@ public class UserService {
 	
 		UserPersonalInfoResponse userPersonalInfoResponse = new UserPersonalInfoResponse();
 		userPersonalInfoResponse.setCode(200);
+		pinfoRequest.setMsg("User personal info updated.");
 		userPersonalInfoResponse.setMsg("User personal info updated.");
 		userPersonalInfoResponse.setPinfo(pinfoRequest);
 		return userPersonalInfoResponse;
@@ -160,8 +162,9 @@ public class UserService {
 		
 		UserEducationInfoResponse userEducationInfoResponse = new UserEducationInfoResponse();
 		userEducationInfoResponse.setCode(200);
+		eduinfoRequest.setMsg("Education Info Updated.");
 		userEducationInfoResponse.setMsg("Education Info Updated.");
-		userEducationInfoResponse.setUserEducationInfoRequest(eduinfoRequest);
+		userEducationInfoResponse.setEduinfo(eduinfoRequest);
 		
 		
 		return userEducationInfoResponse;
@@ -173,7 +176,7 @@ public class UserService {
 		User user = userDao.findOne(intinfoRequest.getUserId());
 		Interests interests = new Interests();
 		interests.setComment(intinfoRequest.getComment());
-		interests.setInterest(intinfoRequest.getInterest());
+		interests.setName(intinfoRequest.getInterest());
 		interests.setUser(user);		
 		interestsDao.save(interests);
 		

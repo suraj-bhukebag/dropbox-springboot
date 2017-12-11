@@ -2,28 +2,29 @@ package com.cmpe273.dropbox.mappers;
 
 public class SignUpRequest {
 
-	private String firstname;
+	private String fname;
 
-	private String lastname;
+	private String lname;
 
 	private String email;
 
 	private String password;
 
-	public String getFirstname() {
-		return firstname;
+	
+	public String getFname() {
+		return fname;
 	}
 
-	public void setFirstname(String firstname) {
-		this.firstname = firstname;
+	public void setFname(String fname) {
+		this.fname = fname;
 	}
 
-	public String getLastname() {
-		return lastname;
+	public String getLname() {
+		return lname;
 	}
 
-	public void setLastname(String lastname) {
-		this.lastname = lastname;
+	public void setLname(String lname) {
+		this.lname = lname;
 	}
 
 	public String getEmail() {

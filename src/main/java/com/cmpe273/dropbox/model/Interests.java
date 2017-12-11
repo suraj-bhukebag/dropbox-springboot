@@ -16,7 +16,7 @@ public class Interests {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 	
-	private String interest;
+	private String name;
 	
 	private String comment;
 	
@@ -33,12 +33,12 @@ public class Interests {
 		this.id = id;
 	}
 
-	public String getInterest() {
-		return interest;
+	public String getName() {
+		return name;
 	}
 
-	public void setInterest(String interest) {
-		this.interest = interest;
+	public void setName(String interest) {
+		this.name = interest;
 	}
 
 	public String getComment() {

@@ -4,14 +4,14 @@ public class UserEducationInfoResponse extends GenericResponse {
 	
 	UserEducationInfoRequest eduinfo;
 
-	public UserEducationInfoRequest getUserEducationInfoRequest() {
+	public UserEducationInfoRequest getEduinfo() {
 		return eduinfo;
 	}
 
-	public void setUserEducationInfoRequest(
-			UserEducationInfoRequest userEducationInfoRequest) {
-		this.eduinfo = userEducationInfoRequest;
+	public void setEduinfo(UserEducationInfoRequest eduinfo) {
+		this.eduinfo = eduinfo;
 	}
+
 	
 	
 
