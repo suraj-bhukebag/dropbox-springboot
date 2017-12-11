@@ -2,15 +2,15 @@ package com.cmpe273.dropbox.mappers;
 
 public class UserEducationInfoResponse extends GenericResponse {
 	
-	UserEducationInfoRequest userEducationInfoRequest;
+	UserEducationInfoRequest eduinfo;
 
 	public UserEducationInfoRequest getUserEducationInfoRequest() {
-		return userEducationInfoRequest;
+		return eduinfo;
 	}
 
 	public void setUserEducationInfoRequest(
 			UserEducationInfoRequest userEducationInfoRequest) {
-		this.userEducationInfoRequest = userEducationInfoRequest;
+		this.eduinfo = userEducationInfoRequest;
 	}
 	
 	

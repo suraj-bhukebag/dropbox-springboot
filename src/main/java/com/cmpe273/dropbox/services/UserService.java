@@ -47,7 +47,7 @@ public class UserService {
 
 		User user = userDao.findUserByEmail(signupRequest.getEmail());
 		if (user != null) {
-			signUpResponse.setCode("500");
+			signUpResponse.setCode(500);
 			signUpResponse
 					.setMsg("User with same email already exist. Please use different email.");
 		} else {
@@ -57,7 +57,7 @@ public class UserService {
 			user.setLastname(signupRequest.getLastname());
 			user.setPassword(passwordEncoder.encode(signupRequest.getPassword()));
 			userDao.save(user);
-			signUpResponse.setCode("200");
+			signUpResponse.setCode(200);
 			signUpResponse.setMsg("User Signup Successfull.");
 
 		}
@@ -70,24 +70,24 @@ public class UserService {
 
 		User user = userDao.findUserByEmail(signupRequest.getEmail());
 		if (user == null) {
-			signinResponse.setCode("500");
+			signinResponse.setCode(500);
 			signinResponse.setMsg("Invalid Username.");
 		} else {
 			if (passwordEncoder.matches(signupRequest.getPassword(),
 					user.getPassword())) {
 				signinResponse.setLoggedIn(true);
 				UserResponse userResponse = new UserResponse();
-				userResponse.setFirstname(user.getFirstname());
-				userResponse.setLastname(user.getLastname());
+				userResponse.setFname(user.getFirstname());
+				userResponse.setLname(user.getLastname());
 				userResponse.setEmail(user.getEmail());
 				signinResponse.setUser(userResponse);
 				signinResponse.setEduinfo(user.getEducationInfo());
 				signinResponse.setPinfo(user.getPersonalInfo());
 				signinResponse.setInterests(user.getInterests());
-				signinResponse.setCode("200");
+				signinResponse.setCode(200);
 				signinResponse.setMsg("Login Successful.");
 			} else {
-				signinResponse.setCode("500");
+				signinResponse.setCode(500);
 				signinResponse.setMsg("Invalid Password.");
 			}
 		}
@@ -124,7 +124,7 @@ public class UserService {
 		}		
 	
 		UserPersonalInfoResponse userPersonalInfoResponse = new UserPersonalInfoResponse();
-		userPersonalInfoResponse.setCode("200");
+		userPersonalInfoResponse.setCode(200);
 		userPersonalInfoResponse.setMsg("User personal info updated.");
 		userPersonalInfoResponse.setPinfo(pinfoRequest);
 		return userPersonalInfoResponse;
@@ -158,7 +158,7 @@ public class UserService {
 		}
 		
 		UserEducationInfoResponse userEducationInfoResponse = new UserEducationInfoResponse();
-		userEducationInfoResponse.setCode("200");
+		userEducationInfoResponse.setCode(200);
 		userEducationInfoResponse.setMsg("Education Info Updated.");
 		userEducationInfoResponse.setUserEducationInfoRequest(eduinfoRequest);
 		
@@ -180,7 +180,7 @@ public class UserService {
 		userDao.save(user);
 		
 		UserInterestsInfoResponse userInterestsInfoResponse = new UserInterestsInfoResponse();
-		userInterestsInfoResponse.setCode("200");
+		userInterestsInfoResponse.setCode(200);
 		userInterestsInfoResponse.setMsg("User Interests");
 		userInterestsInfoResponse.setInterests(interestsDao.findInterestsByUser(intinfoRequest.getUserId()));
 		
