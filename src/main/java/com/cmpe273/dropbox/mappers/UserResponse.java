@@ -1,6 +1,8 @@
 package com.cmpe273.dropbox.mappers;
 
 public class UserResponse {
+	
+	private long id;
 
 	private String fname;
 
@@ -31,5 +33,15 @@ public class UserResponse {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+	
+	
 
 }

@@ -77,6 +77,7 @@ public class UserService {
 					user.getPassword())) {
 				signinResponse.setLoggedIn(true);
 				UserResponse userResponse = new UserResponse();
+				userResponse.setId(user.getId());
 				userResponse.setFname(user.getFirstname());
 				userResponse.setLname(user.getLastname());
 				userResponse.setEmail(user.getEmail());
